@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TalentSync — Synchronizing Talent. Skills. Opportunity.</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- TOAST / BADGE UNLOCK NOTIFICATION -->
+<div id="toast" class="toast"></div>
+
+<!-- ======================= LANDING / LOGIN ======================= -->
+<section id="view-landing" class="view active">
+  <div class="landing">
+    <nav class="landing-nav">
+      <div class="brand">
+        <span class="brand-mark">TS</span>
+        <span class="brand-name">TalentSync</span>
+      </div>
+      <div class="landing-nav-links">
+        <a href="#">About</a>
+        <a href="#">How it works</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <div class="landing-hero">
+      <div class="landing-copy">
+        <span class="eyebrow-pill">Academia · Industry · Institutions</span>
+        <h1>Synchronizing Talent.<br>Skills. <em>Opportunity.</em></h1>
+        <p>An AI-powered skill intelligence platform that compares what students can do against what industry needs — then tells them exactly what to do next.</p>
+      </div>
+
+      <div class="role-picker">
+        <p class="role-picker-label">Continue as</p>
+        <button class="role-card" data-role="student">
+          <span class="role-icon">🎓</span>
+          <span class="role-text">
+            <strong>Student</strong>
+            <small>Track skills, close gaps, find matches</small>
+          </span>
+          <span class="role-arrow">→</span>
+        </button>
+        <button class="role-card" data-role="industry">
+          <span class="role-icon">🏢</span>
+          <span class="role-text">
+            <strong>Industry</strong>
+            <small>Post roles, discover ready candidates</small>
+          </span>
+          <span class="role-arrow">→</span>
+        </button>
+        <button class="role-card" data-role="academician">
+          <span class="role-icon">📘</span>
+          <span class="role-text">
+            <strong>Academician</strong>
+            <small>Guide students, connect with industry</small>
+          </span>
+          <span class="role-arrow">→</span>
+        </button>
+        <button class="role-card" data-role="institution">
+          <span class="role-icon">🏛️</span>
+          <span class="role-text">
+            <strong>Institution</strong>
+            <small>Track readiness across your campus</small>
+          </span>
+          <span class="role-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STUDENT SHELL ======================= -->
+<section id="view-student" class="view app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">TS</span>
+      <span class="brand-name">TalentSync</span>
+    </div>
+    <nav class="side-nav" data-scope="student">
+      <button class="side-link active" data-target="student-dashboard"><span class="ic">🏠</span>Dashboard</button>
+      <button class="side-link" data-target="student-assessment"><span class="ic">🎯</span>Skill Assessment</button>
+      <button class="side-link" data-target="student-opportunities"><span class="ic">💼</span>Opportunities</button>
+      <button class="side-link" data-target="student-profile"><span class="ic">👤</span>My Profile</button>
+    </nav>
+    <button class="side-exit" data-exit="true"><span class="ic">⏻</span>Switch Role</button>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title" id="student-topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-open-notifications="true">🔔<span class="dot"></span></button>
+        <div class="avatar-chip">DS</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- STUDENT: DASHBOARD -->
+      <div class="panel student-panel active" data-panel="student-dashboard">
+        <div class="hello-card">
+          <div>
+            <h2>Hello, Dhruti Sharma 👋</h2>
+            <p>B.Tech CSE · 2nd Year · Building toward your first internship</p>
+          </div>
+          <button class="btn btn-primary btn-lg" data-goto="student-assessment">Analyse My Skills</button>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-label">Skill Readiness</span>
+            <span class="stat-value">72%</span>
+            <div class="mini-bar"><div class="mini-bar-fill" style="width:72%"></div></div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Open Opportunities</span>
+            <span class="stat-value">4</span>
+            <span class="stat-note">matched to your profile</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Badges Earned</span>
+            <span class="stat-value" id="dash-badge-count">0/8</span>
+            <span class="stat-note">keep going →</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Current Skills</h3></div>
+            <ul class="skill-list">
+              <li><span>Python</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>SQL</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>C Programming</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>Machine Learning</span><span class="pill pill-developing">Developing</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Recent Evidence</h3></div>
+            <ul class="evidence-list">
+              <li><span class="ev-ic">📊</span><div><strong>Data Analysis Project</strong><small>Verified</small></div></li>
+              <li><span class="ev-ic">🐍</span><div><strong>Python Project</strong><small>Verified</small></div></li>
+              <li><span class="ev-ic">🏅</span><div><strong>SQL Certification</strong><small>Verified</small></div></li>
+              <li><span class="ev-ic">🎓</span><div><strong>College Coursework</strong><small>Verified</small></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Recommended for You</h3><span class="card-head-note">based on your skill profile</span></div>
+          <div class="opp-mini-row" id="dashboard-opp-row"></div>
+        </div>
+      </div>
+
+      <!-- STUDENT: SKILL ASSESSMENT / GAP ANALYSIS -->
+      <div class="panel student-panel" data-panel="student-assessment">
+
+        <div id="assessment-picker" class="assessment-step active">
+          <div class="card">
+            <div class="card-head"><h3>Select an opportunity to analyse against</h3><span class="card-head-note">TalentSync will compare your skills to its requirements</span></div>
+            <div class="opp-pick-grid" id="assessment-opp-grid"></div>
+          </div>
+        </div>
+
+        <div id="assessment-result" class="assessment-step">
+          <button class="link-back" data-goto-assessment-picker="true">← Choose a different opportunity</button>
+
+          <div class="analysis-hero card">
+            <div class="score-ring-wrap">
+              <div class="score-ring" id="score-ring">
+                <span id="score-value">62%</span>
+              </div>
+              <span class="score-caption">Match Score</span>
+            </div>
+            <div class="analysis-hero-text">
+              <h3 id="analysis-role-title">AI/ML Internship</h3>
+              <p id="analysis-insight">Your strongest alignment is in Python and SQL. Strengthening Machine Learning through practical projects and developing Data Visualization skills would significantly improve your readiness.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="card match-col match-col-strong">
+              <div class="card-head"><h3>✓ Strong Matches</h3></div>
+              <ul class="tag-list" id="list-strong"></ul>
+            </div>
+            <div class="card match-col match-col-dev">
+              <div class="card-head"><h3>◐ Developing</h3></div>
+              <ul class="tag-list" id="list-developing"></ul>
+            </div>
+            <div class="card match-col match-col-gap">
+              <div class="card-head"><h3>✕ Skill Gap</h3></div>
+              <ul class="tag-list" id="list-missing"></ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Your Next Best Actions</h3></div>
+            <div class="action-plan" id="action-plan"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENT: OPPORTUNITIES -->
+      <div class="panel student-panel" data-panel="student-opportunities">
+        <div class="card">
+          <div class="card-head"><h3>Matched Opportunities</h3><span class="card-head-note">ranked by fit with your current skill profile</span></div>
+          <div class="opp-grid" id="opportunities-grid"></div>
+        </div>
+      </div>
+
+      <!-- STUDENT: PROFILE -->
+      <div class="panel student-panel" data-panel="student-profile">
+        <div class="profile-head card">
+          <div class="profile-avatar">DS</div>
+          <div class="profile-head-text">
+            <h2>Dhruti Sharma</h2>
+            <p>B.Tech Computer Science Engineering · 2nd Year</p>
+          </div>
+          <div class="profile-score">
+            <span class="profile-score-value">72%</span>
+            <span class="profile-score-label">Overall Readiness</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Skills</h3></div>
+            <ul class="skill-list">
+              <li><span>Python</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>SQL</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>C Programming</span><span class="pill pill-proven">Proven</span></li>
+              <li><span>Machine Learning</span><span class="pill pill-developing">Developing</span></li>
+              <li><span>Data Visualization</span><span class="pill pill-missing">Missing</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Evidence &amp; Certifications</h3></div>
+            <ul class="evidence-list">
+              <li><span class="ev-ic">📊</span><div><strong>Data Analysis Project</strong><small>College coursework</small></div></li>
+              <li><span class="ev-ic">🐍</span><div><strong>Python Project</strong><small>Personal build</small></div></li>
+              <li><span class="ev-ic">🏅</span><div><strong>SQL Certification</strong><small>Issued Mar 2025</small></div></li>
+              <li><span class="ev-ic">🎓</span><div><strong>College Coursework</strong><small>NIT Jaipur</small></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Badges</h3>
+            <span class="card-head-note" id="badge-progress-note">0 of 8 unlocked</span>
+          </div>
+          <div class="badge-grid" id="badge-grid"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INDUSTRY SHELL ======================= -->
+<section id="view-industry" class="view app-shell">
+  <aside class="sidebar sidebar-industry">
+    <div class="brand">
+      <span class="brand-mark">TS</span>
+      <span class="brand-name">TalentSync</span>
+    </div>
+    <nav class="side-nav" data-scope="industry">
+      <button class="side-link active" data-target="industry-dashboard"><span class="ic">🏠</span>Dashboard</button>
+      <button class="side-link" data-target="industry-post"><span class="ic">📝</span>Post &amp; Match</button>
+    </nav>
+    <button class="side-exit" data-exit="true"><span class="ic">⏻</span>Switch Role</button>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">Industry Dashboard</div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-open-notifications="true">🔔<span class="dot"></span></button>
+        <div class="avatar-chip">RV</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="panel industry-panel active" data-panel="industry-dashboard">
+        <div class="hello-card">
+          <div>
+            <h2>Hello, Rahul Verma 👋</h2>
+            <p>HR Manager · TechSolutions Inc.</p>
+          </div>
+          <button class="btn btn-primary btn-lg" data-goto-industry="industry-post">Post New Opportunity</button>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-card"><span class="stat-label">Posted Opportunities</span><span class="stat-value">12</span></div>
+          <div class="stat-card"><span class="stat-label">Applications Received</span><span class="stat-value">48</span></div>
+          <div class="stat-card"><span class="stat-label">Ready-to-Hire Matches</span><span class="stat-value">8</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Recent Applications</h3></div>
+          <table class="data-table">
+            <thead><tr><th>Student</th><th>Role</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Dhruti Sharma</td><td>AI/ML Intern</td><td><span class="pill pill-developing">Under Review</span></td></tr>
+              <tr><td>Aarav Patel</td><td>SDE Intern</td><td><span class="pill pill-proven">Shortlisted</span></td></tr>
+              <tr><td>Sneha Iyer</td><td>Data Analyst</td><td><span class="pill pill-developing">Under Review</span></td></tr>
+              <tr><td>Rohan Kumar</td><td>Cloud Engineer</td><td><span class="pill pill-proven">Applied</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel industry-panel" data-panel="industry-post">
+        <div class="card">
+          <div class="card-head"><h3>Define Role Requirements</h3><span class="card-head-note">TalentSync will match candidates against this profile</span></div>
+          <div class="form-grid">
+            <label>Job Title
+              <input type="text" id="role-title-input" value="AI/ML Internship" />
+            </label>
+            <label>Company
+              <input type="text" value="TechSolutions Inc." />
+            </label>
+          </div>
+          <div class="req-skill-rows" id="req-skill-rows"></div>
+          <button class="btn btn-primary btn-lg" id="find-candidates-btn">Find Matching Candidates</button>
+        </div>
+
+        <div class="card" id="candidate-match-card" style="display:none;">
+          <div class="card-head"><h3>Candidate Match</h3><span class="card-head-note">evidence-based, explainable matching</span></div>
+          <div class="candidate-row">
+            <div class="candidate-avatar">DS</div>
+            <div class="candidate-info">
+              <strong>Dhruti Sharma</strong>
+              <small>B.Tech CSE · NIT Jaipur</small>
+            </div>
+            <div class="candidate-score">62%</div>
+          </div>
+          <div class="grid-3">
+            <div class="card match-col match-col-strong"><div class="card-head"><h3>✓ Proven</h3></div><ul class="tag-list"><li>Python</li><li>SQL</li></ul></div>
+            <div class="card match-col match-col-dev"><div class="card-head"><h3>◐ Developing</h3></div><ul class="tag-list"><li>Machine Learning</li></ul></div>
+            <div class="card match-col match-col-gap"><div class="card-head"><h3>✕ Missing</h3></div><ul class="tag-list"><li>Data Visualization</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ACADEMICIAN SHELL ======================= -->
+<section id="view-academician" class="view app-shell">
+  <aside class="sidebar sidebar-academician">
+    <div class="brand">
+      <span class="brand-mark">TS</span>
+      <span class="brand-name">TalentSync</span>
+    </div>
+    <nav class="side-nav" data-scope="academician">
+      <button class="side-link active" data-target="academician-dashboard"><span class="ic">🏠</span>Dashboard</button>
+    </nav>
+    <button class="side-exit" data-exit="true"><span class="ic">⏻</span>Switch Role</button>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">Academician Dashboard</div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-open-notifications="true">🔔<span class="dot"></span></button>
+        <div class="avatar-chip">DM</div>
+      </div>
+    </header>
+    <div class="content">
+      <div class="panel active">
+        <div class="hello-card">
+          <div>
+            <h2>Hello, Dr. Mehta 👋</h2>
+            <p>Professor · Computer Science Department</p>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card"><span class="stat-label">Students Mentored</span><span class="stat-value">120</span></div>
+          <div class="stat-card"><span class="stat-label">Internships Facilitated</span><span class="stat-value">45</span></div>
+          <div class="stat-card"><span class="stat-label">Industry Collaborations</span><span class="stat-value">8</span></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Industry Collaboration</h3></div>
+            <ul class="collab-list">
+              <li><div><strong>Mentorship Program — Tech Mahindra</strong><small>Mentor 20 students · 2 months</small></div><button class="btn btn-outline btn-sm">Join</button></li>
+              <li><div><strong>Guest Lecture — TCS</strong><small>AI in Industry · 1 hour</small></div><button class="btn btn-outline btn-sm">Register</button></li>
+              <li><div><strong>Live Project Intern — Infosys</strong><small>Real-time analytics · 3 months</small></div><button class="btn btn-outline btn-sm">View</button></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Quick Actions</h3></div>
+            <div class="quick-actions">
+              <button class="btn btn-outline">View Internship Requests</button>
+              <button class="btn btn-outline">Explore Industry Partners</button>
+              <button class="btn btn-outline">Schedule Guest Lecture</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INSTITUTION SHELL ======================= -->
+<section id="view-institution" class="view app-shell">
+  <aside class="sidebar sidebar-institution">
+    <div class="brand">
+      <span class="brand-mark">TS</span>
+      <span class="brand-name">TalentSync</span>
+    </div>
+    <nav class="side-nav" data-scope="institution">
+      <button class="side-link active" data-target="institution-dashboard"><span class="ic">🏠</span>Dashboard</button>
+    </nav>
+    <button class="side-exit" data-exit="true"><span class="ic">⏻</span>Switch Role</button>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">Institution Dashboard</div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-open-notifications="true">🔔<span class="dot"></span></button>
+        <div class="avatar-chip">NJ</div>
+      </div>
+    </header>
+    <div class="content">
+      <div class="panel active">
+        <div class="hello-card">
+          <div><h2>Hello, Principal 👋</h2><p>NIT Jaipur</p></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-card"><span class="stat-label">Total Students</span><span class="stat-value">1,240</span></div>
+          <div class="stat-card"><span class="stat-label">Placement Rate</span><span class="stat-value">78%</span></div>
+          <div class="stat-card"><span class="stat-label">Active Internships</span><span class="stat-value">48</span></div>
+          <div class="stat-card"><span class="stat-label">Industry Partners</span><span class="stat-value">32</span></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><h3>Industry Skill Demand</h3></div>
+            <div class="demand-bars">
+              <div class="demand-row"><span>Python</span><div class="demand-track"><div class="demand-fill" style="width:92%"></div></div><small>High Demand</small></div>
+              <div class="demand-row"><span>SQL</span><div class="demand-track"><div class="demand-fill" style="width:85%"></div></div><small>High Demand</small></div>
+              <div class="demand-row"><span>Machine Learning</span><div class="demand-track"><div class="demand-fill" style="width:70%"></div></div><small>Growing</small></div>
+              <div class="demand-row"><span>Data Visualization</span><div class="demand-track"><div class="demand-fill" style="width:58%"></div></div><small>Growing</small></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Recommended Actions</h3></div>
+            <ul class="recommend-list">
+              <li>Conduct a Data Visualization workshop</li>
+              <li>Increase practical Machine Learning exposure</li>
+              <li>Introduce industry-led skill assessments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NOTIFICATIONS DRAWER ======================= -->
+<div id="notif-overlay" class="notif-overlay">
+  <div class="notif-drawer">
+    <div class="notif-head">
+      <h3>Notifications</h3>
+      <button class="icon-btn" data-close-notifications="true">✕</button>
+    </div>
+    <div class="notif-list">
+      <div class="notif-item"><span class="notif-ic">✅</span><div><strong>Your application to Google has been shortlisted</strong><small>2 hours ago</small></div></div>
+      <div class="notif-item"><span class="notif-ic">💼</span><div><strong>New internship opportunities in your domain</strong><small>Yesterday</small></div></div>
+      <div class="notif-item"><span class="notif-ic">🏅</span><div><strong>Your skill assessment report is ready</strong><small>2 days ago</small></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
