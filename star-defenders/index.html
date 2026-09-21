@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>STAR DEFENDERS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+  <div class="art"></div>
+  <canvas id="fx"></canvas>
+  <div class="vignette"></div>
+
+  <header class="hud topHud">
+    <div class="logoBlock">
+      <span class="tiny">SECTOR DEFENSE SYSTEM</span>
+      <h1>STAR <b>DEFENDERS</b></h1>
+    </div>
+    <div class="scoreBlock">
+      <div><span>SCORE</span><strong id="score">000000</strong></div>
+      <div><span>HIGH SCORE</span><strong id="high">000000</strong></div>
+      <div><span>LEVEL</span><strong id="level">01</strong></div>
+    </div>
+    <div class="healthBlock">
+      <span>HULL</span><div id="health"></div>
+      <button id="sound" class="icon" title="Sound">♫</button>
+      <button id="pause" class="icon" title="Pause">Ⅱ</button>
+    </div>
+  </header>
+
+  <aside id="brief" class="glass brief">
+    <div class="panelTitle">MISSION BRIEF <button id="closeBrief">×</button></div>
+    <p>Defend the sector from hostile forces.</p>
+    <div class="rule"><b>MOVE</b><span>A / ← &nbsp;&nbsp; D / →</span></div>
+    <div class="rule"><b>FIRE</b><span>SPACE — hold for sustained fire</span></div>
+    <div class="rule"><b>POWER</b><span>⚡ Rapid &nbsp; ◇ Shield &nbsp; ×2 Score</span></div>
+    <p class="small">Destroy enemies. Don't let them breach the defense line. Survive and reach higher levels.</p>
+  </aside>
+  <button id="info" class="infoButton">MISSION INFO</button>
+
+  <aside class="glass powers">
+    <div class="panelTitle">ACTIVE POWER-UPS</div>
+    <div class="power"><i class="rapid">⚡</i><span>RAPID FIRE</span><b id="rapidTime">OFFLINE</b></div>
+    <div class="power"><i class="shield">◇</i><span>SHIELD</span><b id="shieldTime">OFFLINE</b></div>
+    <div class="power"><i class="double">×2</i><span>DOUBLE SCORE</span><b id="doubleTime">OFFLINE</b></div>
+  </aside>
+
+  <div class="reticle"><span></span></div>
+  <div class="status" id="status">SYSTEMS ONLINE</div>
+
+  <div id="startScreen" class="modal">
+    <div class="modalCard">
+      <div class="eyebrow">PRIORITY ALPHA // INCOMING TRANSMISSION</div>
+      <h2>DEFEND THE <b>SECTOR.</b></h2>
+      <p>A cinematic arcade flight mission. Move your interceptor, destroy incoming hostiles and protect the defense line.</p>
+      <button id="start">START MISSION <span>→</span></button>
+      <div class="hint">A / D or ← / → to move · Hold SPACE to fire</div>
+    </div>
+  </div>
+
+  <div id="pauseScreen" class="modal hidden">
+    <div class="modalCard compact">
+      <div class="eyebrow">FLIGHT SYSTEMS STANDBY</div>
+      <h2>MISSION <b>PAUSED</b></h2>
+      <button id="resume">RESUME MISSION <span>→</span></button>
+      <button id="restartPause" class="ghost">RESTART</button>
+    </div>
+  </div>
+
+  <div id="overScreen" class="modal hidden">
+    <div class="modalCard compact">
+      <div class="eyebrow danger">DEFENSE LINE COMPROMISED</div>
+      <h2>MISSION <b>FAILED</b></h2>
+      <div class="final">FINAL SCORE <strong id="finalScore">0</strong></div>
+      <button id="restart">RESTART MISSION <span>↻</span></button>
+    </div>
+  </div>
+
+  <div class="mobile">
+    <button id="left">◀</button><button id="fire">FIRE</button><button id="right">▶</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
