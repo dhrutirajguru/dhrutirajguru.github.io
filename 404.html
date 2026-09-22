@@ -9,29 +9,38 @@
       // This repo hosts multiple projects as subfolders (talentsync, star-defenders,
       // version1, version2), so pathSegmentsToKeep=1 preserves the project folder
       // (the first path segment) as the redirect target instead of the site root.
+      //
+      // Guard: only run the redirect when the path actually names a project folder.
+      // The site root itself has no index.html of its own (only the subfolders do),
+      // so visiting the bare domain also lands here — redirecting that case would
+      // just 404 again and loop forever, growing the query string each time.
       var pathSegmentsToKeep = 1;
-
       var l = window.location;
-      l.replace(
-        l.protocol +
-          "//" +
-          l.hostname +
-          (l.port ? ":" + l.port : "") +
-          l.pathname
-            .split("/")
-            .slice(0, 1 + pathSegmentsToKeep)
-            .join("/") +
-          "/?p=/" +
-          l.pathname
-            .slice(1)
-            .split("/")
-            .slice(pathSegmentsToKeep)
-            .join("/")
-            .replace(/&/g, "~and~") +
-          (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-          l.hash
-      );
+
+      if (l.pathname.split("/").filter(Boolean).length >= pathSegmentsToKeep) {
+        l.replace(
+          l.protocol +
+            "//" +
+            l.hostname +
+            (l.port ? ":" + l.port : "") +
+            l.pathname
+              .split("/")
+              .slice(0, 1 + pathSegmentsToKeep)
+              .join("/") +
+            "/?/" +
+            l.pathname
+              .slice(1)
+              .split("/")
+              .slice(pathSegmentsToKeep)
+              .join("/")
+              .replace(/&/g, "~and~") +
+            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      }
     </script>
   </head>
-  <body></body>
+  <body>
+    <p>Page not found.</p>
+  </body>
 </html>
